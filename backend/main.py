@@ -5,6 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
+from routes import upload, pipeline, results, stream
+
 app = FastAPI(title="InsightFlow API", version="1.0.0")
 
 app.add_middleware(
@@ -15,15 +17,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(upload.router, prefix="/api")
+app.include_router(pipeline.router, prefix="/api")
+app.include_router(results.router, prefix="/api")
+app.include_router(stream.router, prefix="/api")
+
 
 @app.get("/")
 async def health_check():
     return {"status": "ok", "service": "InsightFlow API"}
-
-
-# Routes will be included here after Prompt 10 implementation
-# from routes import upload, pipeline, results, stream
-# app.include_router(upload.router, prefix="/api")
-# app.include_router(pipeline.router, prefix="/api")
-# app.include_router(results.router, prefix="/api")
-# app.include_router(stream.router, prefix="/api")
