@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-multipart
+google-generativeai
+pymupdf
+pandas
+requests
+beautifulsoup4
+firebase-admin
+google-cloud-storage
+google-cloud-firestore
+python-dotenv
+pydantic
+aiofiles
+httpx

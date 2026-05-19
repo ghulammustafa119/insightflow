@@ -1,0 +1,46 @@
+{
+  "feed_timestamp": "2026-05-19T08:30:00Z",
+  "feed_type": "customer_complaints",
+  "complaints": [
+    {
+      "id": "C001",
+      "customer_id": "CUST-8821",
+      "text": "My order of SKU-477 has not been delivered. Tracking shows it is delayed by 3 days.",
+      "sku": "SKU-477",
+      "order_id": "ORD-20260516-441",
+      "timestamp": "2026-05-19T07:15:00Z",
+      "severity": "high"
+    },
+    {
+      "id": "C002",
+      "customer_id": "CUST-3341",
+      "text": "Where is my shipment? It was supposed to arrive 3 days ago. Very disappointed.",
+      "sku": "SKU-477",
+      "order_id": "ORD-20260515-887",
+      "timestamp": "2026-05-19T06:45:00Z",
+      "severity": "high"
+    },
+    {
+      "id": "C003",
+      "customer_id": "CUST-7712",
+      "text": "Delivery estimate keeps changing every day. First it was May 17, now it says May 22.",
+      "sku": "SKU-477",
+      "order_id": "ORD-20260514-220",
+      "timestamp": "2026-05-19T08:10:00Z",
+      "severity": "medium"
+    },
+    {
+      "id": "C004",
+      "customer_id": "CUST-5509",
+      "text": "Urgent: production line will stop if SKU-477 is not delivered today.",
+      "sku": "SKU-477",
+      "order_id": "ORD-20260517-663",
+      "timestamp": "2026-05-19T08:25:00Z",
+      "severity": "critical"
+    }
+  ],
+  "total_count": 89,
+  "sku_affected": "SKU-477",
+  "trend": "increasing",
+  "complaints_last_7d": [12, 15, 18, 22, 31, 45, 89]
+}

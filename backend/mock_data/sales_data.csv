@@ -1,0 +1,7 @@
+date,sku,product_name,units_sold,units_remaining,daily_burn_rate,days_until_stockout,revenue_pkr
+2026-05-19,SKU-477,Industrial Component X,312,198,280,2,748800
+2026-05-18,SKU-477,Industrial Component X,298,510,265,1,715200
+2026-05-17,SKU-477,Industrial Component X,276,808,255,3,662400
+2026-05-16,SKU-477,Industrial Component X,241,1084,241,4,578400
+2026-05-15,SKU-477,Industrial Component X,195,1325,210,6,468000
+2026-05-14,SKU-477,Industrial Component X,178,1520,185,8,427200

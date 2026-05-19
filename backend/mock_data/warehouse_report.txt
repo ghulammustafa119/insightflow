@@ -1,0 +1,24 @@
+WAREHOUSE INVENTORY REPORT
+Report ID: WHR-2026-042
+Generated: May 16, 2026 — 09:00 AM
+
+INVENTORY STATUS SUMMARY
+========================
+SKU-477 (Industrial Component X)
+  Current Stock: 2,450 units
+  Daily Consumption (avg): 180 units/day
+  Projected Duration: 13.6 days
+  Status: ADEQUATE
+  Last Physical Count: May 15, 2026
+  Reorder Point: 500 units
+  Recommendation: No immediate action required.
+
+SKU-322 (Component Y)
+  Current Stock: 890 units
+  Daily Consumption: 45 units/day
+  Projected Duration: 19.7 days
+  Status: ADEQUATE
+
+OVERALL ASSESSMENT: All critical SKUs are within safe stock levels.
+Next scheduled review: May 30, 2026.
+Report prepared by: Warehouse Management System v2.1

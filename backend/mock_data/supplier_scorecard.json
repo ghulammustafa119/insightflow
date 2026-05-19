@@ -1,0 +1,30 @@
+{
+  "report_date": "2026-05-19",
+  "report_type": "supplier_reliability",
+  "suppliers": [
+    {
+      "id": "SUP-001",
+      "name": "Primary Supplier A",
+      "reliability_score": 0.42,
+      "on_time_delivery_30d": 0.38,
+      "avg_lead_days": 5.2,
+      "status": "at_risk",
+      "last_delivery": "2026-05-14",
+      "notes": "Transport disruptions reported on main routes. Multiple delays in last 2 weeks.",
+      "sku_supplied": ["SKU-477", "SKU-322"],
+      "contract_value_pkr": 2500000
+    },
+    {
+      "id": "SUP-002",
+      "name": "Backup Supplier B",
+      "reliability_score": 0.81,
+      "on_time_delivery_30d": 0.79,
+      "avg_lead_days": 3.1,
+      "status": "available",
+      "last_delivery": "2026-05-17",
+      "notes": "Reliable. Available for emergency orders.",
+      "sku_supplied": ["SKU-477"],
+      "contract_value_pkr": 1800000
+    }
+  ]
+}
