@@ -1,0 +1,791 @@
+{
+  "job_id": "test_job_001",
+  "sources": [
+    {
+      "source_id": "src_001",
+      "staleness_flag": true,
+      "source_type": "pdf",
+      "timestamp": "2026-05-16",
+      "content_raw": "WAREHOUSE INVENTORY REPORT\nReport ID: WHR-2026-042\nGenerated: May 16, 2026 \u00b7 09:00 AM\nINVENTORY STATUS SUMMARY\n========================\nSKU-477 (Industrial Component X)\n  Current Stock: 2,450 units\n  Daily Consumption (avg): 180 units/day\n  Projected Duration: 13.6 days\n  Status: ADEQUATE\n  Last Physical Count: May 15, 2026\n  Reorder Point: 500 units\n  Recommendation: No immediate action required.\nSKU-322 (Component Y)\n  Current Stock: 890 units\n  Daily Consumption: 45 units/day\n  Projected Duration: 19.7 days\n  Status: ADEQUATE\nOVERALL ASSESSMENT: All critical SKUs are within safe stock levels.\nNext scheduled review: May 30, 2026.\nReport prepared by: Warehouse Management System v2.1\n",
+      "content_parsed": {
+        "pages": 1,
+        "word_count": 91,
+        "extracted_date": "2026-05-16"
+      },
+      "credibility_score": 0.85,
+      "file_name": "warehouse_report.pdf"
+    },
+    {
+      "source_id": "src_002",
+      "staleness_flag": true,
+      "source_type": "url",
+      "timestamp": "2026-05-16",
+      "content_raw": "Example Domain\nThis domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more",
+      "content_parsed": {
+        "url": "https://example.com/supply-chain-disruption",
+        "char_count": 127
+      },
+      "credibility_score": 0.6,
+      "file_name": null
+    },
+    {
+      "source_id": "src_003",
+      "staleness_flag": false,
+      "source_type": "csv",
+      "timestamp": "2026-05-19",
+      "content_raw": "         date      sku            product_name  units_sold  units_remaining  daily_burn_rate  days_until_stockout  revenue_pkr\n0  2026-05-19  SKU-477  Industrial Component X         312              198              280                    2       748800\n1  2026-05-18  SKU-477  Industrial Component X         298              510              265                    1       715200\n2  2026-05-17  SKU-477  Industrial Component X         276              808              255                    3       662400\n3  2026-05-16  SKU-477  Industrial Component X         241             1084              241                    4       578400\n4  2026-05-15  SKU-477  Industrial Component X         195             1325              210                    6       468000\n5  2026-05-14  SKU-477  Industrial Component X         178             1520              185                    8       427200",
+      "content_parsed": {
+        "rows": 6,
+        "columns": [
+          "date",
+          "sku",
+          "product_name",
+          "units_sold",
+          "units_remaining",
+          "daily_burn_rate",
+          "days_until_stockout",
+          "revenue_pkr"
+        ],
+        "data": [
+          {
+            "date": "2026-05-19",
+            "sku": "SKU-477",
+            "product_name": "Industrial Component X",
+            "units_sold": 312,
+            "units_remaining": 198,
+            "daily_burn_rate": 280,
+            "days_until_stockout": 2,
+            "revenue_pkr": 748800
+          },
+          {
+            "date": "2026-05-18",
+            "sku": "SKU-477",
+            "product_name": "Industrial Component X",
+            "units_sold": 298,
+            "units_remaining": 510,
+            "daily_burn_rate": 265,
+            "days_until_stockout": 1,
+            "revenue_pkr": 715200
+          },
+          {
+            "date": "2026-05-17",
+            "sku": "SKU-477",
+            "product_name": "Industrial Component X",
+            "units_sold": 276,
+            "units_remaining": 808,
+            "daily_burn_rate": 255,
+            "days_until_stockout": 3,
+            "revenue_pkr": 662400
+          },
+          {
+            "date": "2026-05-16",
+            "sku": "SKU-477",
+            "product_name": "Industrial Component X",
+            "units_sold": 241,
+            "units_remaining": 1084,
+            "daily_burn_rate": 241,
+            "days_until_stockout": 4,
+            "revenue_pkr": 578400
+          },
+          {
+            "date": "2026-05-15",
+            "sku": "SKU-477",
+            "product_name": "Industrial Component X",
+            "units_sold": 195,
+            "units_remaining": 1325,
+            "daily_burn_rate": 210,
+            "days_until_stockout": 6,
+            "revenue_pkr": 468000
+          },
+          {
+            "date": "2026-05-14",
+            "sku": "SKU-477",
+            "product_name": "Industrial Component X",
+            "units_sold": 178,
+            "units_remaining": 1520,
+            "daily_burn_rate": 185,
+            "days_until_stockout": 8,
+            "revenue_pkr": 427200
+          }
+        ]
+      },
+      "credibility_score": 0.95,
+      "file_name": "sales_data.csv"
+    },
+    {
+      "source_id": "src_004",
+      "staleness_flag": false,
+      "source_type": "json",
+      "timestamp": "2026-05-19",
+      "content_raw": "{\n  \"report_date\": \"2026-05-19\",\n  \"report_type\": \"supplier_reliability\",\n  \"suppliers\": [\n    {\n      \"id\": \"SUP-001\",\n      \"name\": \"Primary Supplier A\",\n      \"reliability_score\": 0.42,\n      \"on_time_delivery_30d\": 0.38,\n      \"avg_lead_days\": 5.2,\n      \"status\": \"at_risk\",\n      \"last_delivery\": \"2026-05-14\",\n      \"notes\": \"Transport disruptions reported on main routes. Multiple delays in last 2 weeks.\",\n      \"sku_supplied\": [\n        \"SKU-477\",\n        \"SKU-322\"\n      ],\n      \"contract_value_pkr\": 2500000\n    },\n    {\n      \"id\": \"SUP-002\",\n      \"name\": \"Backup Supplier B\",\n      \"reliability_score\": 0.81,\n      \"on_time_delivery_30d\": 0.79,\n      \"avg_lead_days\": 3.1,\n      \"status\": \"available\",\n      \"last_delivery\": \"2026-05-17\",\n      \"notes\": \"Reliable. Available for emergency orders.\",\n      \"sku_supplied\": [\n        \"SKU-477\"\n      ],\n      \"contract_value_pkr\": 1800000\n    }\n  ]\n}",
+      "content_parsed": {
+        "report_date": "2026-05-19",
+        "report_type": "supplier_reliability",
+        "suppliers": [
+          {
+            "id": "SUP-001",
+            "name": "Primary Supplier A",
+            "reliability_score": 0.42,
+            "on_time_delivery_30d": 0.38,
+            "avg_lead_days": 5.2,
+            "status": "at_risk",
+            "last_delivery": "2026-05-14",
+            "notes": "Transport disruptions reported on main routes. Multiple delays in last 2 weeks.",
+            "sku_supplied": [
+              "SKU-477",
+              "SKU-322"
+            ],
+            "contract_value_pkr": 2500000
+          },
+          {
+            "id": "SUP-002",
+            "name": "Backup Supplier B",
+            "reliability_score": 0.81,
+            "on_time_delivery_30d": 0.79,
+            "avg_lead_days": 3.1,
+            "status": "available",
+            "last_delivery": "2026-05-17",
+            "notes": "Reliable. Available for emergency orders.",
+            "sku_supplied": [
+              "SKU-477"
+            ],
+            "contract_value_pkr": 1800000
+          }
+        ]
+      },
+      "credibility_score": 0.9,
+      "file_name": "supplier_scorecard.json"
+    },
+    {
+      "source_id": "src_005",
+      "staleness_flag": false,
+      "source_type": "feed",
+      "timestamp": "2026-05-19",
+      "content_raw": "ALERT: SKU-477 stockout predicted within 48 hours based on current burn rate. Current stock: 198 units. Burn rate: 280 units/day. Days remaining: 2. Immediate procurement action required. Supplier A reliability at 42% \u2014 consider Supplier B. Feed generated at: 2026-05-19T08:57:01.683997+00:00",
+      "content_parsed": {
+        "alert_type": "stockout_prediction",
+        "sku": "SKU-477",
+        "days_remaining": 2,
+        "burn_rate": 280,
+        "units_remaining": 198
+      },
+      "credibility_score": 0.75,
+      "file_name": null
+    }
+  ],
+  "insights": [
+    {
+      "insight_id": "ins_001",
+      "source_id": "src_001",
+      "source_type": "pdf",
+      "signal": "Could not extract insights from this source",
+      "category": "anomaly",
+      "confidence": 0.3,
+      "temporal_marker": "2026-05-16",
+      "metric": null,
+      "value": null
+    }
+  ],
+  "contradictions": {
+    "contradictions": [],
+    "resolutions": [],
+    "ground_truth": {},
+    "stale_source_ids": []
+  },
+  "action_chain": [
+    {
+      "step": 1,
+      "title": "Validate Current Stock Level",
+      "type": "query",
+      "description": "Query inventory system to confirm SKU-477 stock status.",
+      "tool_call": "validate_stock(sku='SKU-477')",
+      "estimated_cost_pkr": 0,
+      "estimated_time_hours": 0.5,
+      "feasible": true,
+      "rejection_reason": null,
+      "depends_on_step": null,
+      "status": "pending",
+      "action_id": "act_001"
+    },
+    {
+      "step": 2,
+      "title": "Notify Procurement Team",
+      "type": "notify",
+      "description": "Alert procurement team about critical stock situation.",
+      "tool_call": "notify_procurement(sku='SKU-477', urgency='critical')",
+      "estimated_cost_pkr": 500,
+      "estimated_time_hours": 0.25,
+      "feasible": true,
+      "rejection_reason": null,
+      "depends_on_step": 1,
+      "status": "pending",
+      "action_id": "act_002"
+    },
+    {
+      "step": 3,
+      "title": "Place Emergency Order \u2014 Primary Supplier A",
+      "type": "order",
+      "description": "Emergency restock order via Primary Supplier A API.",
+      "tool_call": "emergency_order_primary(supplier='SUP-001', sku='SKU-477', qty=2000)",
+      "estimated_cost_pkr": 250000,
+      "estimated_time_hours": 2,
+      "feasible": true,
+      "rejection_reason": null,
+      "depends_on_step": 2,
+      "status": "pending",
+      "action_id": "act_003"
+    },
+    {
+      "step": 4,
+      "title": "Update Customer Delivery Estimates",
+      "type": "update",
+      "description": "Push updated ETAs to all affected customers.",
+      "tool_call": "update_delivery_estimates(sku='SKU-477', delay_days=3)",
+      "estimated_cost_pkr": 1000,
+      "estimated_time_hours": 1,
+      "feasible": true,
+      "rejection_reason": null,
+      "depends_on_step": 3,
+      "status": "pending",
+      "action_id": "act_004"
+    },
+    {
+      "step": 5,
+      "title": "Schedule 24-Hour Monitoring",
+      "type": "monitor",
+      "description": "Set up automated monitoring for SKU-477 every 24 hours.",
+      "tool_call": "schedule_monitoring(sku='SKU-477', interval_hours=24)",
+      "estimated_cost_pkr": 2000,
+      "estimated_time_hours": 0.1,
+      "feasible": true,
+      "rejection_reason": null,
+      "depends_on_step": null,
+      "status": "pending",
+      "action_id": "act_005"
+    }
+  ],
+  "execution_log": [
+    {
+      "step": 1,
+      "title": "Validate Current Stock Level",
+      "status": "success",
+      "state_before": {
+        "stock_risk": "critical",
+        "stock_verified": false,
+        "procurement_notified": false,
+        "order_placed": false,
+        "customers_notified": 0,
+        "monitoring_active": false,
+        "stockout_risk_percent": 87
+      },
+      "state_after": {
+        "stock_risk": "critical",
+        "stock_verified": true,
+        "procurement_notified": false,
+        "order_placed": false,
+        "customers_notified": 0,
+        "monitoring_active": false,
+        "stockout_risk_percent": 87,
+        "stock_level": "8%"
+      },
+      "result": {
+        "stock_level": "8%",
+        "units_remaining": 198,
+        "days_remaining": 2,
+        "sku": "SKU-477",
+        "status": "critical"
+      },
+      "error": null,
+      "recovery": null,
+      "latency_ms": 365,
+      "cost_usd": 0.0033,
+      "start_time": "2026-05-19T08:58:14.294053+00:00",
+      "end_time": "2026-05-19T08:58:14.659344+00:00"
+    },
+    {
+      "step": 2,
+      "title": "Notify Procurement Team",
+      "status": "success",
+      "state_before": {
+        "stock_risk": "critical",
+        "stock_verified": true,
+        "procurement_notified": false,
+        "order_placed": false,
+        "customers_notified": 0,
+        "monitoring_active": false,
+        "stockout_risk_percent": 87,
+        "stock_level": "8%"
+      },
+      "state_after": {
+        "stock_risk": "critical",
+        "stock_verified": true,
+        "procurement_notified": true,
+        "order_placed": false,
+        "customers_notified": 0,
+        "monitoring_active": false,
+        "stockout_risk_percent": 87,
+        "stock_level": "8%"
+      },
+      "result": {
+        "status": "sent",
+        "recipients": [
+          "procurement@company.com",
+          "manager@company.com"
+        ],
+        "message_id": "MSG-4421",
+        "timestamp": "2026-05-19T08:58:14.829008+00:00"
+      },
+      "error": null,
+      "recovery": null,
+      "latency_ms": 169,
+      "cost_usd": 0.0022,
+      "start_time": "2026-05-19T08:58:14.659368+00:00",
+      "end_time": "2026-05-19T08:58:14.829104+00:00"
+    },
+    {
+      "step": 3,
+      "title": "Place Emergency Order \u2014 Primary Supplier A",
+      "status": "recovered",
+      "state_before": {
+        "stock_risk": "critical",
+        "stock_verified": true,
+        "procurement_notified": true,
+        "order_placed": false,
+        "customers_notified": 0,
+        "monitoring_active": false,
+        "stockout_risk_percent": 87,
+        "stock_level": "8%"
+      },
+      "state_after": {
+        "stock_risk": "critical",
+        "stock_verified": true,
+        "procurement_notified": true,
+        "order_placed": true,
+        "customers_notified": 0,
+        "monitoring_active": false,
+        "stockout_risk_percent": 87,
+        "stock_level": "8%",
+        "order_details": {
+          "order_id": "ORD-ALT-9921",
+          "supplier": "Backup Supplier B",
+          "eta_days": 3,
+          "units_ordered": 2000,
+          "cost_pkr": 180000,
+          "status": "confirmed"
+        }
+      },
+      "result": {
+        "order_id": "ORD-ALT-9921",
+        "supplier": "Backup Supplier B",
+        "eta_days": 3,
+        "units_ordered": 2000,
+        "cost_pkr": 180000,
+        "status": "confirmed"
+      },
+      "error": "Primary Supplier A API timeout after 30s. Connection refused.",
+      "recovery": "Primary Supplier A timed out. Order successfully placed via Backup Supplier B (ORD-ALT-9921).",
+      "latency_ms": 696,
+      "cost_usd": 0.0029,
+      "start_time": "2026-05-19T08:58:14.829121+00:00",
+      "end_time": "2026-05-19T08:58:15.525456+00:00"
+    },
+    {
+      "step": 4,
+      "title": "Update Customer Delivery Estimates",
+      "status": "success",
+      "state_before": {
+        "stock_risk": "critical",
+        "stock_verified": true,
+        "procurement_notified": true,
+        "order_placed": true,
+        "customers_notified": 0,
+        "monitoring_active": false,
+        "stockout_risk_percent": 87,
+        "stock_level": "8%",
+        "order_details": {
+          "order_id": "ORD-ALT-9921",
+          "supplier": "Backup Supplier B",
+          "eta_days": 3,
+          "units_ordered": 2000,
+          "cost_pkr": 180000,
+          "status": "confirmed"
+        }
+      },
+      "state_after": {
+        "stock_risk": "critical",
+        "stock_verified": true,
+        "procurement_notified": true,
+        "order_placed": true,
+        "customers_notified": 142,
+        "monitoring_active": false,
+        "stockout_risk_percent": 87,
+        "stock_level": "8%",
+        "order_details": {
+          "order_id": "ORD-ALT-9921",
+          "supplier": "Backup Supplier B",
+          "eta_days": 3,
+          "units_ordered": 2000,
+          "cost_pkr": 180000,
+          "status": "confirmed"
+        }
+      },
+      "result": {
+        "customers_notified": 142,
+        "old_eta": "2026-05-19",
+        "new_eta": "2026-05-22",
+        "notification_sent": true
+      },
+      "error": null,
+      "recovery": null,
+      "latency_ms": 178,
+      "cost_usd": 0.0042,
+      "start_time": "2026-05-19T08:58:15.525485+00:00",
+      "end_time": "2026-05-19T08:58:15.704135+00:00"
+    },
+    {
+      "step": 5,
+      "title": "Schedule 24-Hour Monitoring",
+      "status": "success",
+      "state_before": {
+        "stock_risk": "critical",
+        "stock_verified": true,
+        "procurement_notified": true,
+        "order_placed": true,
+        "customers_notified": 142,
+        "monitoring_active": false,
+        "stockout_risk_percent": 87,
+        "stock_level": "8%",
+        "order_details": {
+          "order_id": "ORD-ALT-9921",
+          "supplier": "Backup Supplier B",
+          "eta_days": 3,
+          "units_ordered": 2000,
+          "cost_pkr": 180000,
+          "status": "confirmed"
+        }
+      },
+      "state_after": {
+        "stock_risk": "critical",
+        "stock_verified": true,
+        "procurement_notified": true,
+        "order_placed": true,
+        "customers_notified": 142,
+        "monitoring_active": true,
+        "stockout_risk_percent": 12,
+        "stock_level": "8%",
+        "order_details": {
+          "order_id": "ORD-ALT-9921",
+          "supplier": "Backup Supplier B",
+          "eta_days": 3,
+          "units_ordered": 2000,
+          "cost_pkr": 180000,
+          "status": "confirmed"
+        }
+      },
+      "result": {
+        "job_id": "MON-001",
+        "interval_hours": 24,
+        "next_check": "2026-05-20T10:00:00Z",
+        "alerts_configured": [
+          "stock_below_500",
+          "supplier_delay"
+        ]
+      },
+      "error": null,
+      "recovery": null,
+      "latency_ms": 213,
+      "cost_usd": 0.0012,
+      "start_time": "2026-05-19T08:58:15.704157+00:00",
+      "end_time": "2026-05-19T08:58:15.917648+00:00"
+    }
+  ],
+  "outcome_report": {
+    "job_id": "test_job_001",
+    "generated_at": "2026-05-19T08:58:15.921127+00:00",
+    "summary": {
+      "before": {
+        "stock_risk": "critical",
+        "stock_verified": false,
+        "procurement_notified": false,
+        "order_placed": false,
+        "customers_notified": 0,
+        "monitoring_active": false,
+        "stockout_risk_percent": 87
+      },
+      "after": {
+        "stock_risk": "critical",
+        "stock_verified": true,
+        "procurement_notified": true,
+        "order_placed": true,
+        "customers_notified": 142,
+        "monitoring_active": true,
+        "stockout_risk_percent": 12,
+        "stock_level": "8%",
+        "order_details": {
+          "order_id": "ORD-ALT-9921",
+          "supplier": "Backup Supplier B",
+          "eta_days": 3,
+          "units_ordered": 2000,
+          "cost_pkr": 180000,
+          "status": "confirmed"
+        }
+      },
+      "actions_executed": 5,
+      "actions_succeeded": 5,
+      "actions_failed": 0,
+      "contradictions_detected": 0,
+      "contradictions_resolved": 0,
+      "stale_sources_identified": 0
+    },
+    "performance": {
+      "total_cost_usd": 0.0138,
+      "total_latency_ms": 1621,
+      "avg_latency_ms": 324.2,
+      "cost_per_action_usd": 0.0028,
+      "pipeline_duration_seconds": 1.62
+    },
+    "projected_impact": {
+      "stockout_risk_reduction": "87% \u2192 12%",
+      "stock_crisis_averted": "Emergency order placed for 2000 units via Backup Supplier B",
+      "customer_impact": "142 customers notified with updated delivery estimates",
+      "procurement_status": "Procurement team alerted, emergency order confirmed (ETA: 3 days)",
+      "monitoring": "24-hour automated monitoring activated for SKU-477"
+    },
+    "contradiction_summary": [],
+    "execution_log": [
+      {
+        "step": 1,
+        "title": "Validate Current Stock Level",
+        "status": "success",
+        "state_before": {
+          "stock_risk": "critical",
+          "stock_verified": false,
+          "procurement_notified": false,
+          "order_placed": false,
+          "customers_notified": 0,
+          "monitoring_active": false,
+          "stockout_risk_percent": 87
+        },
+        "state_after": {
+          "stock_risk": "critical",
+          "stock_verified": true,
+          "procurement_notified": false,
+          "order_placed": false,
+          "customers_notified": 0,
+          "monitoring_active": false,
+          "stockout_risk_percent": 87,
+          "stock_level": "8%"
+        },
+        "result": {
+          "stock_level": "8%",
+          "units_remaining": 198,
+          "days_remaining": 2,
+          "sku": "SKU-477",
+          "status": "critical"
+        },
+        "error": null,
+        "recovery": null,
+        "latency_ms": 365,
+        "cost_usd": 0.0033,
+        "start_time": "2026-05-19T08:58:14.294053+00:00",
+        "end_time": "2026-05-19T08:58:14.659344+00:00"
+      },
+      {
+        "step": 2,
+        "title": "Notify Procurement Team",
+        "status": "success",
+        "state_before": {
+          "stock_risk": "critical",
+          "stock_verified": true,
+          "procurement_notified": false,
+          "order_placed": false,
+          "customers_notified": 0,
+          "monitoring_active": false,
+          "stockout_risk_percent": 87,
+          "stock_level": "8%"
+        },
+        "state_after": {
+          "stock_risk": "critical",
+          "stock_verified": true,
+          "procurement_notified": true,
+          "order_placed": false,
+          "customers_notified": 0,
+          "monitoring_active": false,
+          "stockout_risk_percent": 87,
+          "stock_level": "8%"
+        },
+        "result": {
+          "status": "sent",
+          "recipients": [
+            "procurement@company.com",
+            "manager@company.com"
+          ],
+          "message_id": "MSG-4421",
+          "timestamp": "2026-05-19T08:58:14.829008+00:00"
+        },
+        "error": null,
+        "recovery": null,
+        "latency_ms": 169,
+        "cost_usd": 0.0022,
+        "start_time": "2026-05-19T08:58:14.659368+00:00",
+        "end_time": "2026-05-19T08:58:14.829104+00:00"
+      },
+      {
+        "step": 3,
+        "title": "Place Emergency Order \u2014 Primary Supplier A",
+        "status": "recovered",
+        "state_before": {
+          "stock_risk": "critical",
+          "stock_verified": true,
+          "procurement_notified": true,
+          "order_placed": false,
+          "customers_notified": 0,
+          "monitoring_active": false,
+          "stockout_risk_percent": 87,
+          "stock_level": "8%"
+        },
+        "state_after": {
+          "stock_risk": "critical",
+          "stock_verified": true,
+          "procurement_notified": true,
+          "order_placed": true,
+          "customers_notified": 0,
+          "monitoring_active": false,
+          "stockout_risk_percent": 87,
+          "stock_level": "8%",
+          "order_details": {
+            "order_id": "ORD-ALT-9921",
+            "supplier": "Backup Supplier B",
+            "eta_days": 3,
+            "units_ordered": 2000,
+            "cost_pkr": 180000,
+            "status": "confirmed"
+          }
+        },
+        "result": {
+          "order_id": "ORD-ALT-9921",
+          "supplier": "Backup Supplier B",
+          "eta_days": 3,
+          "units_ordered": 2000,
+          "cost_pkr": 180000,
+          "status": "confirmed"
+        },
+        "error": "Primary Supplier A API timeout after 30s. Connection refused.",
+        "recovery": "Primary Supplier A timed out. Order successfully placed via Backup Supplier B (ORD-ALT-9921).",
+        "latency_ms": 696,
+        "cost_usd": 0.0029,
+        "start_time": "2026-05-19T08:58:14.829121+00:00",
+        "end_time": "2026-05-19T08:58:15.525456+00:00"
+      },
+      {
+        "step": 4,
+        "title": "Update Customer Delivery Estimates",
+        "status": "success",
+        "state_before": {
+          "stock_risk": "critical",
+          "stock_verified": true,
+          "procurement_notified": true,
+          "order_placed": true,
+          "customers_notified": 0,
+          "monitoring_active": false,
+          "stockout_risk_percent": 87,
+          "stock_level": "8%",
+          "order_details": {
+            "order_id": "ORD-ALT-9921",
+            "supplier": "Backup Supplier B",
+            "eta_days": 3,
+            "units_ordered": 2000,
+            "cost_pkr": 180000,
+            "status": "confirmed"
+          }
+        },
+        "state_after": {
+          "stock_risk": "critical",
+          "stock_verified": true,
+          "procurement_notified": true,
+          "order_placed": true,
+          "customers_notified": 142,
+          "monitoring_active": false,
+          "stockout_risk_percent": 87,
+          "stock_level": "8%",
+          "order_details": {
+            "order_id": "ORD-ALT-9921",
+            "supplier": "Backup Supplier B",
+            "eta_days": 3,
+            "units_ordered": 2000,
+            "cost_pkr": 180000,
+            "status": "confirmed"
+          }
+        },
+        "result": {
+          "customers_notified": 142,
+          "old_eta": "2026-05-19",
+          "new_eta": "2026-05-22",
+          "notification_sent": true
+        },
+        "error": null,
+        "recovery": null,
+        "latency_ms": 178,
+        "cost_usd": 0.0042,
+        "start_time": "2026-05-19T08:58:15.525485+00:00",
+        "end_time": "2026-05-19T08:58:15.704135+00:00"
+      },
+      {
+        "step": 5,
+        "title": "Schedule 24-Hour Monitoring",
+        "status": "success",
+        "state_before": {
+          "stock_risk": "critical",
+          "stock_verified": true,
+          "procurement_notified": true,
+          "order_placed": true,
+          "customers_notified": 142,
+          "monitoring_active": false,
+          "stockout_risk_percent": 87,
+          "stock_level": "8%",
+          "order_details": {
+            "order_id": "ORD-ALT-9921",
+            "supplier": "Backup Supplier B",
+            "eta_days": 3,
+            "units_ordered": 2000,
+            "cost_pkr": 180000,
+            "status": "confirmed"
+          }
+        },
+        "state_after": {
+          "stock_risk": "critical",
+          "stock_verified": true,
+          "procurement_notified": true,
+          "order_placed": true,
+          "customers_notified": 142,
+          "monitoring_active": true,
+          "stockout_risk_percent": 12,
+          "stock_level": "8%",
+          "order_details": {
+            "order_id": "ORD-ALT-9921",
+            "supplier": "Backup Supplier B",
+            "eta_days": 3,
+            "units_ordered": 2000,
+            "cost_pkr": 180000,
+            "status": "confirmed"
+          }
+        },
+        "result": {
+          "job_id": "MON-001",
+          "interval_hours": 24,
+          "next_check": "2026-05-20T10:00:00Z",
+          "alerts_configured": [
+            "stock_below_500",
+            "supplier_delay"
+          ]
+        },
+        "error": null,
+        "recovery": null,
+        "latency_ms": 213,
+        "cost_usd": 0.0012,
+        "start_time": "2026-05-19T08:58:15.704157+00:00",
+        "end_time": "2026-05-19T08:58:15.917648+00:00"
+      }
+    ]
+  }
+}
