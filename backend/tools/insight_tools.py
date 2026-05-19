@@ -67,7 +67,7 @@ def extract_insights_from_source(source: dict) -> list:
     for attempt in range(3):
         try:
             response = _client.models.generate_content(
-                model="gemini-2.0-flash",
+                model="gemini-2.5-flash",
                 contents=prompt,
             )
             text = response.text.strip()

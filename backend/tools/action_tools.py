@@ -93,7 +93,7 @@ def generate_action_chain(ground_truth: dict, insights: list) -> list:
     for attempt in range(3):
         try:
             response = _client.models.generate_content(
-                model="gemini-2.0-flash",
+                model="gemini-2.5-flash",
                 contents=prompt,
             )
             text = response.text.strip()

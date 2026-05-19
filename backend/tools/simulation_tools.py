@@ -139,7 +139,16 @@ def simulate_execution(action_chain: list) -> list:
         start_time = _now()
         state_before = dict(current_state)
         tool_name = _parse_tool_name(action.get("tool_call", ""))
-        tool_fn = MOCK_TOOLS.get(tool_name)
+
+        # Map by step number as fallback so Gemini-generated names still work
+        STEP_TOOL_MAP = {
+            1: _tool_validate_stock,
+            2: _tool_notify_procurement,
+            3: _tool_emergency_order_primary,
+            4: _tool_update_delivery_estimates,
+            5: _tool_schedule_monitoring,
+        }
+        tool_fn = MOCK_TOOLS.get(tool_name) or STEP_TOOL_MAP.get(step)
 
         t0 = time.time()
         status = "success"
