@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const API_BASE_URL =
-  process.env.EXPO_PUBLIC_API_URL || "http://10.0.2.2:8000/api";
+  process.env.EXPO_PUBLIC_API_URL || "https://stunning-patience-production-04e4.up.railway.app/api";
 
 export async function uploadSources(formData: FormData) {
   console.log("[API] POST /upload");
