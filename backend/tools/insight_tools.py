@@ -1,9 +1,9 @@
 import os
 import json
+import time
 from datetime import datetime, timezone
 
 from google import genai
-from google.genai import types as genai_types
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -64,36 +64,44 @@ def extract_insights_from_source(source: dict) -> list:
         content=content,
     )
 
-    try:
-        response = _client.models.generate_content(
-            model="gemini-1.5-flash",
-            contents=prompt,
-        )
-        text = response.text.strip()
+    for attempt in range(3):
+        try:
+            response = _client.models.generate_content(
+                model="gemini-2.0-flash",
+                contents=prompt,
+            )
+            text = response.text.strip()
 
-        if text.startswith("```"):
-            text = text.split("```")[1]
-            if text.startswith("json"):
-                text = text[4:]
+            if text.startswith("```"):
+                text = text.split("```")[1]
+                if text.startswith("json"):
+                    text = text[4:]
 
-        insights_raw = json.loads(text)
-        insights = []
-        for item in insights_raw:
-            insights.append({
-                "insight_id": _next_insight_id(),
-                "source_id": source["source_id"],
-                "source_type": source["source_type"],
-                "signal": item.get("signal", ""),
-                "category": item.get("category", "anomaly"),
-                "confidence": float(item.get("confidence", 0.5)),
-                "temporal_marker": item.get("temporal_marker", source.get("timestamp", "")),
-                "metric": item.get("metric"),
-                "value": item.get("value"),
-            })
-        return insights
-    except Exception as e:
-        print(f"[Insights] Error for {source['source_id']}: {e}")
-        return _fallback_insights(source)
+            insights_raw = json.loads(text)
+            insights = []
+            for item in insights_raw:
+                insights.append({
+                    "insight_id": _next_insight_id(),
+                    "source_id": source["source_id"],
+                    "source_type": source["source_type"],
+                    "signal": item.get("signal", ""),
+                    "category": item.get("category", "anomaly"),
+                    "confidence": float(item.get("confidence", 0.5)),
+                    "temporal_marker": item.get("temporal_marker", source.get("timestamp", "")),
+                    "metric": item.get("metric"),
+                    "value": item.get("value"),
+                })
+            return insights
+        except Exception as e:
+            err = str(e)
+            if "429" in err and attempt < 2:
+                wait = 25 * (attempt + 1)
+                print(f"[Insights] Rate limited, retrying in {wait}s... (attempt {attempt+1}/3)")
+                time.sleep(wait)
+            else:
+                print(f"[Insights] Error for {source['source_id']}: {e}")
+                return _fallback_insights(source)
+    return _fallback_insights(source)
 
 
 def extract_all_insights(sources: list) -> list:

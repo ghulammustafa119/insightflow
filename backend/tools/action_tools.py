@@ -1,5 +1,6 @@
 import os
 import json
+import time
 
 from google import genai
 from dotenv import load_dotenv
@@ -88,21 +89,31 @@ def generate_action_chain(ground_truth: dict, insights: list) -> list:
         lead_days=CONSTRAINTS["max_supplier_lead_days"],
     )
 
-    try:
-        response = _client.models.generate_content(
-            model="gemini-1.5-flash",
-            contents=prompt,
-        )
-        text = response.text.strip()
-
-        if text.startswith("```"):
-            text = text.split("```")[1]
-            if text.startswith("json"):
-                text = text[4:]
-
-        actions_raw = json.loads(text)
-    except Exception as e:
-        print(f"[Actions] Gemini error, using fallback actions: {e}")
+    actions_raw = None
+    for attempt in range(3):
+        try:
+            response = _client.models.generate_content(
+                model="gemini-2.0-flash",
+                contents=prompt,
+            )
+            text = response.text.strip()
+            if text.startswith("```"):
+                text = text.split("```")[1]
+                if text.startswith("json"):
+                    text = text[4:]
+            actions_raw = json.loads(text)
+            break
+        except Exception as e:
+            err = str(e)
+            if "429" in err and attempt < 2:
+                wait = 25 * (attempt + 1)
+                print(f"[Actions] Rate limited, retrying in {wait}s... (attempt {attempt+1}/3)")
+                time.sleep(wait)
+            else:
+                print(f"[Actions] Gemini error, using fallback actions: {e}")
+                actions_raw = _fallback_actions()
+                break
+    if actions_raw is None:
         actions_raw = _fallback_actions()
 
     actions = []
