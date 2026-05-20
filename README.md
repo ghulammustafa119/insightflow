@@ -23,7 +23,7 @@ InsightFlow ingests 5 heterogeneous data sources, resolves contradictions using 
 
 ## Demo Video
 
-Link: [to be added]
+Link: [Watch Demo on Google Drive](https://drive.google.com/file/d/1y98rYzOpvj-B8_mCZCiAyJmKWhemb6In/view?usp=sharing)
 
 ---
 
