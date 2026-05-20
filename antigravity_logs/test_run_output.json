@@ -1,16 +1,16 @@
 {
-  "job_id": "test_job_001",
+  "job_id": "demo_job_001",
   "sources": [
     {
       "source_id": "src_001",
       "staleness_flag": true,
       "source_type": "pdf",
-      "timestamp": "2026-05-16",
+      "timestamp": "2026-05-17",
       "content_raw": "WAREHOUSE INVENTORY REPORT\nReport ID: WHR-2026-042\nGenerated: May 16, 2026 \u00b7 09:00 AM\nINVENTORY STATUS SUMMARY\n========================\nSKU-477 (Industrial Component X)\n  Current Stock: 2,450 units\n  Daily Consumption (avg): 180 units/day\n  Projected Duration: 13.6 days\n  Status: ADEQUATE\n  Last Physical Count: May 15, 2026\n  Reorder Point: 500 units\n  Recommendation: No immediate action required.\nSKU-322 (Component Y)\n  Current Stock: 890 units\n  Daily Consumption: 45 units/day\n  Projected Duration: 19.7 days\n  Status: ADEQUATE\nOVERALL ASSESSMENT: All critical SKUs are within safe stock levels.\nNext scheduled review: May 30, 2026.\nReport prepared by: Warehouse Management System v2.1\n",
       "content_parsed": {
         "pages": 1,
         "word_count": 91,
-        "extracted_date": "2026-05-16"
+        "extracted_date": "2026-05-17"
       },
       "credibility_score": 0.85,
       "file_name": "warehouse_report.pdf"
@@ -19,7 +19,7 @@
       "source_id": "src_002",
       "staleness_flag": true,
       "source_type": "url",
-      "timestamp": "2026-05-16",
+      "timestamp": "2026-05-17",
       "content_raw": "Example Domain\nThis domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more",
       "content_parsed": {
         "url": "https://example.com/supply-chain-disruption",
@@ -32,7 +32,7 @@
       "source_id": "src_003",
       "staleness_flag": false,
       "source_type": "csv",
-      "timestamp": "2026-05-19",
+      "timestamp": "2026-05-20",
       "content_raw": "         date      sku            product_name  units_sold  units_remaining  daily_burn_rate  days_until_stockout  revenue_pkr\n0  2026-05-19  SKU-477  Industrial Component X         312              198              280                    2       748800\n1  2026-05-18  SKU-477  Industrial Component X         298              510              265                    1       715200\n2  2026-05-17  SKU-477  Industrial Component X         276              808              255                    3       662400\n3  2026-05-16  SKU-477  Industrial Component X         241             1084              241                    4       578400\n4  2026-05-15  SKU-477  Industrial Component X         195             1325              210                    6       468000\n5  2026-05-14  SKU-477  Industrial Component X         178             1520              185                    8       427200",
       "content_parsed": {
         "rows": 6,
@@ -160,8 +160,8 @@
       "source_id": "src_005",
       "staleness_flag": false,
       "source_type": "feed",
-      "timestamp": "2026-05-19",
-      "content_raw": "ALERT: SKU-477 stockout predicted within 48 hours based on current burn rate. Current stock: 198 units. Burn rate: 280 units/day. Days remaining: 2. Immediate procurement action required. Supplier A reliability at 42% \u2014 consider Supplier B. Feed generated at: 2026-05-19T12:45:27.427099+00:00",
+      "timestamp": "2026-05-20",
+      "content_raw": "ALERT: SKU-477 stockout predicted within 48 hours based on current burn rate. Current stock: 198 units. Burn rate: 280 units/day. Days remaining: 2. Immediate procurement action required. Supplier A reliability at 42% \u2014 consider Supplier B. Feed generated at: 2026-05-20T03:51:15.675228+00:00",
       "content_parsed": {
         "alert_type": "stockout_prediction",
         "sku": "SKU-477",
@@ -175,258 +175,99 @@
   ],
   "insights": [
     {
-      "insight_id": "ins_001",
+      "insight_id": "ins_031",
       "source_id": "src_001",
       "source_type": "pdf",
-      "signal": "All critical SKUs are currently maintained within safe stock levels.",
-      "category": "trend",
-      "confidence": 0.85,
-      "temporal_marker": "2026-05-16",
-      "metric": "stock_level_status",
-      "value": "safe stock levels"
-    },
-    {
-      "insight_id": "ins_002",
-      "source_id": "src_001",
-      "source_type": "pdf",
-      "signal": "SKU-477 (Industrial Component X) has a projected stock duration of 13.6 days based on current consumption.",
-      "category": "trend",
-      "confidence": 0.85,
-      "temporal_marker": "2026-05-16",
-      "metric": "projected_stock_duration",
-      "value": "13.6 days"
-    },
-    {
-      "insight_id": "ins_003",
-      "source_id": "src_001",
-      "source_type": "pdf",
-      "signal": "SKU-322 (Component Y) has a projected stock duration of 19.7 days based on current consumption.",
-      "category": "trend",
-      "confidence": 0.85,
-      "temporal_marker": "2026-05-16",
-      "metric": "projected_stock_duration",
-      "value": "19.7 days"
-    },
-    {
-      "insight_id": "ins_004",
-      "source_id": "src_001",
-      "source_type": "pdf",
-      "signal": "SKU-477 (Industrial Component X) currently has 2,450 units, significantly above its reorder point of 500 units.",
-      "category": "trend",
-      "confidence": 0.85,
-      "temporal_marker": "2026-05-16",
-      "metric": "stock_level_vs_reorder_point",
-      "value": "2450 units vs 500 units"
-    },
-    {
-      "insight_id": "ins_005",
-      "source_id": "src_002",
-      "source_type": "url",
-      "signal": "The explicit instruction to 'Avoid use in operations' indicates that this domain lacks the reliability required for production-level supply chain resource or service provisioning.",
-      "category": "risk",
-      "confidence": 1.0,
-      "temporal_marker": "2026-05-16",
-      "metric": "supplier_reliability",
-      "value": "unreliable for operations"
-    },
-    {
-      "insight_id": "ins_006",
-      "source_id": "src_002",
-      "source_type": "url",
-      "signal": "Misusing the example domain in supply chain operations could lead to system failures, thereby disrupting critical processes and causing delivery issues for goods, services, or information.",
-      "category": "risk",
-      "confidence": 0.9,
-      "temporal_marker": "2026-05-16",
-      "metric": "delivery_issues",
-      "value": "potential disruption"
-    },
-    {
-      "insight_id": "ins_007",
-      "source_id": "src_002",
-      "source_type": "url",
-      "signal": "If operational systems relying on this domain fail due to its misuse, there is a clear risk of negative customer impact through service outages, inaccurate information, or delayed fulfillment.",
-      "category": "risk",
-      "confidence": 0.9,
-      "temporal_marker": "2026-05-16",
-      "metric": "customer_impact",
-      "value": "potential negative impact"
-    },
-    {
-      "insight_id": "ins_008",
-      "source_id": "src_003",
-      "source_type": "csv",
       "signal": "Could not extract insights from this source",
       "category": "anomaly",
       "confidence": 0.3,
-      "temporal_marker": "2026-05-19",
+      "temporal_marker": "2026-05-17",
       "metric": null,
       "value": null
-    },
-    {
-      "insight_id": "ins_010",
-      "source_id": "src_005",
-      "source_type": "feed",
-      "signal": "SKU-477 is predicted to experience a stockout within 48 hours, indicating an imminent supply disruption.",
-      "category": "risk",
-      "confidence": 0.8,
-      "temporal_marker": "2026-05-19",
-      "metric": "stockout_prediction",
-      "value": "within 48 hours"
-    },
-    {
-      "insight_id": "ins_011",
-      "source_id": "src_005",
-      "source_type": "feed",
-      "signal": "SKU-477 currently has only 2 days of stock remaining, based on a current stock of 198 units and a burn rate of 280 units per day.",
-      "category": "risk",
-      "confidence": 0.75,
-      "temporal_marker": "2026-05-19",
-      "metric": "days_of_stock_remaining",
-      "value": "2 days"
-    },
-    {
-      "insight_id": "ins_012",
-      "source_id": "src_005",
-      "source_type": "feed",
-      "signal": "Supplier A's reliability is low at 42%, posing a risk to procurement and suggesting consideration of alternative suppliers like Supplier B.",
-      "category": "risk",
-      "confidence": 0.75,
-      "temporal_marker": "2026-05-19",
-      "metric": "supplier_reliability",
-      "value": "42%"
     }
   ],
   "contradictions": {
-    "contradictions": [
-      {
-        "metric": "projected_stock_duration",
-        "conflict": [
-          {
-            "source": "src_001",
-            "value": "13.6 days"
-          },
-          {
-            "source": "src_001",
-            "value": "19.7 days"
-          }
-        ],
-        "explanation": "Metric 'projected_stock_duration' has conflicting values across sources. Trusted source 'src_001' (pdf, weight=0.34) reports '13.6 days'. Stale/lower-credibility sources report different values.",
-        "resolution": "Resolved in favor of 'src_001' (weight=0.34). Value accepted: '13.6 days'. Stale sources marked: ['src_001'].",
-        "trusted_source": "src_001",
-        "stale_sources": [
-          "src_001"
-        ]
-      },
-      {
-        "metric": "supplier_reliability",
-        "conflict": [
-          {
-            "source": "src_005",
-            "value": "42%"
-          },
-          {
-            "source": "src_002",
-            "value": "unreliable for operations"
-          }
-        ],
-        "explanation": "Metric 'supplier_reliability' has conflicting values across sources. Trusted source 'src_005' (feed, weight=0.75) reports '42%'. Stale/lower-credibility sources report different values.",
-        "resolution": "Resolved in favor of 'src_005' (weight=0.75). Value accepted: '42%'. Stale sources marked: ['src_002'].",
-        "trusted_source": "src_005",
-        "stale_sources": [
-          "src_002"
-        ]
-      }
-    ],
-    "resolutions": [
-      "Resolved in favor of 'src_001' (weight=0.34). Value accepted: '13.6 days'. Stale sources marked: ['src_001'].",
-      "Resolved in favor of 'src_005' (weight=0.75). Value accepted: '42%'. Stale sources marked: ['src_002']."
-    ],
-    "ground_truth": {
-      "stock_level_status": "safe stock levels",
-      "projected_stock_duration": "13.6 days",
-      "stock_level_vs_reorder_point": "2450 units vs 500 units",
-      "supplier_reliability": "42%",
-      "delivery_issues": "potential disruption",
-      "customer_impact": "potential negative impact",
-      "stockout_prediction": "within 48 hours",
-      "days_of_stock_remaining": "2 days"
-    },
-    "stale_source_ids": [
-      "src_001",
-      "src_002"
-    ]
+    "contradictions": [],
+    "resolutions": [],
+    "ground_truth": {},
+    "stale_source_ids": []
   },
   "action_chain": [
     {
-      "action_id": "act_001",
       "step": 1,
-      "title": "Validate Critical SKU Stock Levels",
+      "title": "Validate Current Stock Level",
       "type": "query",
-      "description": "Given the conflicting information between 'safe stock levels' in insights and the 'stockout prediction within 48 hours' in ground truth, it's crucial to immediately query the inventory system for real-time stock levels of critical SKUs (e.g., SKU-477, SKU-322) to confirm the exact stock position.",
-      "tool_call": "query_inventory_system(sku_list=['SKU-477', 'SKU-322'], detailed_report=true)",
+      "description": "Query inventory system to confirm SKU-477 stock status.",
+      "tool_call": "validate_stock(sku='SKU-477')",
       "estimated_cost_pkr": 0,
       "estimated_time_hours": 0.5,
       "feasible": true,
+      "rejection_reason": null,
       "depends_on_step": null,
-      "status": "pending"
+      "status": "pending",
+      "action_id": "act_001"
     },
     {
-      "action_id": "act_002",
       "step": 2,
-      "title": "Alert Procurement Team to Imminent Stockout",
+      "title": "Notify Procurement Team",
       "type": "notify",
-      "description": "Immediately alert the procurement team about the urgent stockout prediction (within 48 hours) for critical SKUs and the potential negative customer impact. This ensures they are aware of the critical situation and can initiate contingency plans.",
-      "tool_call": "send_email(recipient='procurement@company.com', subject='URGENT: Critical Stockout Predicted within 48 Hours for Key SKUs', body='Immediate action required for critical SKUs due to predicted stockout. Ground truth indicates 2 days of stock remaining. Potential customer impact high. Please review and initiate emergency orders.')",
-      "estimated_cost_pkr": 0,
-      "estimated_time_hours": 0.1,
+      "description": "Alert procurement team about critical stock situation.",
+      "tool_call": "notify_procurement(sku='SKU-477', urgency='critical')",
+      "estimated_cost_pkr": 500,
+      "estimated_time_hours": 0.25,
       "feasible": true,
+      "rejection_reason": null,
       "depends_on_step": 1,
-      "status": "pending"
+      "status": "pending",
+      "action_id": "act_002"
     },
     {
-      "action_id": "act_003",
       "step": 3,
-      "title": "Place Emergency Order for Critical SKUs with Primary Supplier A",
+      "title": "Place Emergency Order \u2014 Primary Supplier A",
       "type": "order",
-      "description": "Given the imminent stockout within 48 hours, place an emergency purchase order for critical SKUs (e.g., SKU-477, SKU-322) with Primary Supplier A. This action is set to be technically feasible within constraints but will simulate an API timeout failure at runtime as per instructions.",
-      "tool_call": "place_purchase_order(supplier_id='PrimarySupplierA', sku_list=[{'sku': 'SKU-477', 'quantity': 1000}, {'sku': 'SKU-322', 'quantity': 1000}], delivery_priority='emergency', requested_delivery_date='2024-07-25')",
-      "estimated_cost_pkr": 450000,
-      "estimated_time_hours": 0.2,
+      "description": "Emergency restock order via Primary Supplier A API.",
+      "tool_call": "emergency_order_primary(supplier='SUP-001', sku='SKU-477', qty=2000)",
+      "estimated_cost_pkr": 250000,
+      "estimated_time_hours": 2,
       "feasible": true,
+      "rejection_reason": null,
       "depends_on_step": 2,
-      "status": "pending"
+      "status": "pending",
+      "action_id": "act_003"
     },
     {
-      "action_id": "act_004",
       "step": 4,
-      "title": "Proactively Update Customer Delivery Estimates",
+      "title": "Update Customer Delivery Estimates",
       "type": "update",
-      "description": "With a stockout predicted within 48 hours and potential delivery disruptions, it is critical to proactively update customer delivery estimates for orders dependent on the critical SKUs. This manages expectations and mitigates negative customer impact, irrespective of whether the emergency order succeeds or fails.",
-      "tool_call": "update_customer_delivery_estimates(impacted_sku_list=['SKU-477', 'SKU-322'], new_status='delayed_potential_disruption', message='Due to unforeseen supply chain disruptions and an immediate stock concern for critical components, your delivery may experience delays. We are working diligently to resolve this situation and will provide further updates.')",
-      "estimated_cost_pkr": 0,
-      "estimated_time_hours": 1.0,
+      "description": "Push updated ETAs to all affected customers.",
+      "tool_call": "update_delivery_estimates(sku='SKU-477', delay_days=3)",
+      "estimated_cost_pkr": 1000,
+      "estimated_time_hours": 1,
       "feasible": true,
+      "rejection_reason": null,
       "depends_on_step": 3,
-      "status": "pending"
+      "status": "pending",
+      "action_id": "act_004"
     },
     {
-      "action_id": "act_005",
       "step": 5,
-      "title": "Initiate 24-Hour Intensive Stock and Order Monitoring",
+      "title": "Schedule 24-Hour Monitoring",
       "type": "monitor",
-      "description": "Establish continuous 24-hour monitoring for stock levels of critical SKUs, status of pending emergency orders, and supplier communications. This is essential for rapid detection of any changes and to enable agile responses to the imminent stockout threat, especially given the low supplier reliability (42%) and potential delivery issues.",
-      "tool_call": "schedule_monitoring(type='critical_sku_stock_and_order_status', duration_hours=24, frequency_minutes=60, alerts_to=['supply_chain_manager@company.com', 'procurement_lead@company.com', 'operations_manager@company.com'])",
-      "estimated_cost_pkr": 0,
+      "description": "Set up automated monitoring for SKU-477 every 24 hours.",
+      "tool_call": "schedule_monitoring(sku='SKU-477', interval_hours=24)",
+      "estimated_cost_pkr": 2000,
       "estimated_time_hours": 0.1,
       "feasible": true,
-      "depends_on_step": 4,
-      "status": "pending"
+      "rejection_reason": null,
+      "depends_on_step": null,
+      "status": "pending",
+      "action_id": "act_005"
     }
   ],
   "execution_log": [
     {
       "step": 1,
-      "title": "Validate Critical SKU Stock Levels",
+      "title": "Validate Current Stock Level",
       "status": "success",
       "state_before": {
         "stock_risk": "critical",
@@ -456,14 +297,14 @@
       },
       "error": null,
       "recovery": null,
-      "latency_ms": 125,
-      "cost_usd": 0.0036,
-      "start_time": "2026-05-19T12:46:49.391701+00:00",
-      "end_time": "2026-05-19T12:46:49.517295+00:00"
+      "latency_ms": 257,
+      "cost_usd": 0.0017,
+      "start_time": "2026-05-20T03:51:15.885041+00:00",
+      "end_time": "2026-05-20T03:51:16.142926+00:00"
     },
     {
       "step": 2,
-      "title": "Alert Procurement Team to Imminent Stockout",
+      "title": "Notify Procurement Team",
       "status": "success",
       "state_before": {
         "stock_risk": "critical",
@@ -492,18 +333,18 @@
           "manager@company.com"
         ],
         "message_id": "MSG-4421",
-        "timestamp": "2026-05-19T12:46:49.727748+00:00"
+        "timestamp": "2026-05-20T03:51:16.557039+00:00"
       },
       "error": null,
       "recovery": null,
-      "latency_ms": 210,
-      "cost_usd": 0.0048,
-      "start_time": "2026-05-19T12:46:49.517322+00:00",
-      "end_time": "2026-05-19T12:46:49.727833+00:00"
+      "latency_ms": 414,
+      "cost_usd": 0.0025,
+      "start_time": "2026-05-20T03:51:16.142953+00:00",
+      "end_time": "2026-05-20T03:51:16.557122+00:00"
     },
     {
       "step": 3,
-      "title": "Place Emergency Order for Critical SKUs with Primary Supplier A",
+      "title": "Place Emergency Order \u2014 Primary Supplier A",
       "status": "recovered",
       "state_before": {
         "stock_risk": "critical",
@@ -543,14 +384,14 @@
       },
       "error": "Primary Supplier A API timeout after 30s. Connection refused.",
       "recovery": "Primary Supplier A timed out. Order successfully placed via Backup Supplier B (ORD-ALT-9921).",
-      "latency_ms": 891,
-      "cost_usd": 0.0016,
-      "start_time": "2026-05-19T12:46:49.727850+00:00",
-      "end_time": "2026-05-19T12:46:50.619187+00:00"
+      "latency_ms": 609,
+      "cost_usd": 0.0033,
+      "start_time": "2026-05-20T03:51:16.557132+00:00",
+      "end_time": "2026-05-20T03:51:17.166910+00:00"
     },
     {
       "step": 4,
-      "title": "Proactively Update Customer Delivery Estimates",
+      "title": "Update Customer Delivery Estimates",
       "status": "success",
       "state_before": {
         "stock_risk": "critical",
@@ -596,14 +437,14 @@
       },
       "error": null,
       "recovery": null,
-      "latency_ms": 135,
-      "cost_usd": 0.0045,
-      "start_time": "2026-05-19T12:46:50.619270+00:00",
-      "end_time": "2026-05-19T12:46:50.754643+00:00"
+      "latency_ms": 201,
+      "cost_usd": 0.0041,
+      "start_time": "2026-05-20T03:51:17.166934+00:00",
+      "end_time": "2026-05-20T03:51:17.368178+00:00"
     },
     {
       "step": 5,
-      "title": "Initiate 24-Hour Intensive Stock and Order Monitoring",
+      "title": "Schedule 24-Hour Monitoring",
       "status": "success",
       "state_before": {
         "stock_risk": "critical",
@@ -652,15 +493,15 @@
       },
       "error": null,
       "recovery": null,
-      "latency_ms": 352,
-      "cost_usd": 0.0023,
-      "start_time": "2026-05-19T12:46:50.754672+00:00",
-      "end_time": "2026-05-19T12:46:51.107580+00:00"
+      "latency_ms": 482,
+      "cost_usd": 0.0044,
+      "start_time": "2026-05-20T03:51:17.368202+00:00",
+      "end_time": "2026-05-20T03:51:17.851037+00:00"
     }
   ],
   "outcome_report": {
-    "job_id": "test_job_001",
-    "generated_at": "2026-05-19T12:46:51.108020+00:00",
+    "job_id": "demo_job_001",
+    "generated_at": "2026-05-20T03:51:17.851126+00:00",
     "summary": {
       "before": {
         "stock_risk": "critical",
@@ -692,16 +533,16 @@
       "actions_executed": 5,
       "actions_succeeded": 5,
       "actions_failed": 0,
-      "contradictions_detected": 2,
-      "contradictions_resolved": 2,
-      "stale_sources_identified": 2
+      "contradictions_detected": 0,
+      "contradictions_resolved": 0,
+      "stale_sources_identified": 0
     },
     "performance": {
-      "total_cost_usd": 0.0168,
-      "total_latency_ms": 1713,
-      "avg_latency_ms": 342.6,
-      "cost_per_action_usd": 0.0034,
-      "pipeline_duration_seconds": 1.71
+      "total_cost_usd": 0.016,
+      "total_latency_ms": 1963,
+      "avg_latency_ms": 392.6,
+      "cost_per_action_usd": 0.0032,
+      "pipeline_duration_seconds": 1.96
     },
     "projected_impact": {
       "stockout_risk_reduction": "87% \u2192 12%",
@@ -710,14 +551,11 @@
       "procurement_status": "Procurement team alerted, emergency order confirmed (ETA: 3 days)",
       "monitoring": "24-hour automated monitoring activated for SKU-477"
     },
-    "contradiction_summary": [
-      "Resolved in favor of 'src_001' (weight=0.34). Value accepted: '13.6 days'. Stale sources marked: ['src_001'].",
-      "Resolved in favor of 'src_005' (weight=0.75). Value accepted: '42%'. Stale sources marked: ['src_002']."
-    ],
+    "contradiction_summary": [],
     "execution_log": [
       {
         "step": 1,
-        "title": "Validate Critical SKU Stock Levels",
+        "title": "Validate Current Stock Level",
         "status": "success",
         "state_before": {
           "stock_risk": "critical",
@@ -747,14 +585,14 @@
         },
         "error": null,
         "recovery": null,
-        "latency_ms": 125,
-        "cost_usd": 0.0036,
-        "start_time": "2026-05-19T12:46:49.391701+00:00",
-        "end_time": "2026-05-19T12:46:49.517295+00:00"
+        "latency_ms": 257,
+        "cost_usd": 0.0017,
+        "start_time": "2026-05-20T03:51:15.885041+00:00",
+        "end_time": "2026-05-20T03:51:16.142926+00:00"
       },
       {
         "step": 2,
-        "title": "Alert Procurement Team to Imminent Stockout",
+        "title": "Notify Procurement Team",
         "status": "success",
         "state_before": {
           "stock_risk": "critical",
@@ -783,18 +621,18 @@
             "manager@company.com"
           ],
           "message_id": "MSG-4421",
-          "timestamp": "2026-05-19T12:46:49.727748+00:00"
+          "timestamp": "2026-05-20T03:51:16.557039+00:00"
         },
         "error": null,
         "recovery": null,
-        "latency_ms": 210,
-        "cost_usd": 0.0048,
-        "start_time": "2026-05-19T12:46:49.517322+00:00",
-        "end_time": "2026-05-19T12:46:49.727833+00:00"
+        "latency_ms": 414,
+        "cost_usd": 0.0025,
+        "start_time": "2026-05-20T03:51:16.142953+00:00",
+        "end_time": "2026-05-20T03:51:16.557122+00:00"
       },
       {
         "step": 3,
-        "title": "Place Emergency Order for Critical SKUs with Primary Supplier A",
+        "title": "Place Emergency Order \u2014 Primary Supplier A",
         "status": "recovered",
         "state_before": {
           "stock_risk": "critical",
@@ -834,14 +672,14 @@
         },
         "error": "Primary Supplier A API timeout after 30s. Connection refused.",
         "recovery": "Primary Supplier A timed out. Order successfully placed via Backup Supplier B (ORD-ALT-9921).",
-        "latency_ms": 891,
-        "cost_usd": 0.0016,
-        "start_time": "2026-05-19T12:46:49.727850+00:00",
-        "end_time": "2026-05-19T12:46:50.619187+00:00"
+        "latency_ms": 609,
+        "cost_usd": 0.0033,
+        "start_time": "2026-05-20T03:51:16.557132+00:00",
+        "end_time": "2026-05-20T03:51:17.166910+00:00"
       },
       {
         "step": 4,
-        "title": "Proactively Update Customer Delivery Estimates",
+        "title": "Update Customer Delivery Estimates",
         "status": "success",
         "state_before": {
           "stock_risk": "critical",
@@ -887,14 +725,14 @@
         },
         "error": null,
         "recovery": null,
-        "latency_ms": 135,
-        "cost_usd": 0.0045,
-        "start_time": "2026-05-19T12:46:50.619270+00:00",
-        "end_time": "2026-05-19T12:46:50.754643+00:00"
+        "latency_ms": 201,
+        "cost_usd": 0.0041,
+        "start_time": "2026-05-20T03:51:17.166934+00:00",
+        "end_time": "2026-05-20T03:51:17.368178+00:00"
       },
       {
         "step": 5,
-        "title": "Initiate 24-Hour Intensive Stock and Order Monitoring",
+        "title": "Schedule 24-Hour Monitoring",
         "status": "success",
         "state_before": {
           "stock_risk": "critical",
@@ -943,10 +781,10 @@
         },
         "error": null,
         "recovery": null,
-        "latency_ms": 352,
-        "cost_usd": 0.0023,
-        "start_time": "2026-05-19T12:46:50.754672+00:00",
-        "end_time": "2026-05-19T12:46:51.107580+00:00"
+        "latency_ms": 482,
+        "cost_usd": 0.0044,
+        "start_time": "2026-05-20T03:51:17.368202+00:00",
+        "end_time": "2026-05-20T03:51:17.851037+00:00"
       }
     ]
   }
