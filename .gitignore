@@ -1,0 +1,36 @@
+# Secrets & credentials
+backend/.env
+backend/service_account.json
+backend/credentials.json
+*.key
+*.pem
+*.p12
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.venv/
+
+# Node
+node_modules/
+mobile/.expo/
+mobile/dist/
+mobile/web-build/
+
+# Build outputs
+*.apk
+*.aab
+android/app/build/
+
+# Logs
+*.log
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
