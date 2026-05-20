@@ -9,6 +9,18 @@ InsightFlow ingests 5 heterogeneous data sources, resolves contradictions using 
 
 ---
 
+## Live Links
+
+| Resource | URL |
+|----------|-----|
+| **Backend API (Live)** | https://stunning-patience-production-04e4.up.railway.app |
+| **Demo Endpoint** | https://stunning-patience-production-04e4.up.railway.app/api/demo |
+| **Android APK Build** | https://expo.dev/accounts/mustafa51214/projects/insightflow/builds/3f61676f-dede-4df0-9f30-d31c09c75e46 |
+| **Direct APK Download** | https://expo.dev/artifacts/eas/gUbLndJV1PJdGMoW4BXtui.apk |
+| **GitHub Repo** | https://github.com/ghulammustafa119/insightflow |
+
+---
+
 ## Demo Video
 
 Link: [to be added]
