@@ -9,7 +9,7 @@
 - [x] Test run output — `antigravity_logs/test_run_output.json`
 - [x] README with all required sections — `README.md`
 - [ ] Demo video — [to be recorded]
-- [x] APK build — https://expo.dev/accounts/mustafa51214/projects/insightflow/builds/3f61676f-dede-4df0-9f30-d31c09c75e46
+- [x] APK build — https://expo.dev/accounts/mustafa51214/projects/insightflow/builds/fabb37c9-138c-4109-bf5e-56e0d80adba5
 - [x] Live backend URL — https://stunning-patience-production-04e4.up.railway.app
 
 ---
