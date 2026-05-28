@@ -3,9 +3,12 @@
 
 ---
 
-## One-Line Summary
+# InsightFlow
 
-InsightFlow ingests 5 heterogeneous data sources, resolves contradictions using credibility-weighted analysis, and autonomously executes a constraint-aware action chain — all in under 12 seconds.
+> Businesses don’t fail because they lack data.  
+> They fail because their systems cannot act fast enough when data conflicts.
+
+InsightFlow acts like an autonomous AI operations manager that detects business crises, resolves conflicting information, and takes recovery actions automatically.
 
 ---
 
